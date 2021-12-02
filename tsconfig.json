@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    // "outDir": "./dist/",
+    "allowJs": true,
+    "target": "es2021",
+    "module": "commonjs",
+    // "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    // "strict": true,
+    // "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./src/",
+    "moduleResolution": "node",
+  }
+}
