@@ -1,28 +1,28 @@
 import {
-  CreateAccount,
-  CreateAccountModel,
+  UpdateAccount,
+  UpdateAccountModel,
   AccountModel,
   Hasher,
-  CreateAccountRepository,
+  UpdateAccountRepository,
   CheckAccountByEmailRepository
-} from './db-create-account-protocols'
+} from './db-update-account-protocols'
 
-export class DbCreateAccount implements CreateAccount {
+export class DbUpdateAccount implements UpdateAccount {
 
   constructor(
     private readonly encrypter: Hasher,
-    private readonly createAccountRepository: CreateAccountRepository,
+    private readonly updateAccountRepository: UpdateAccountRepository,
     private readonly checkAccountByEmailRepository: CheckAccountByEmailRepository
   ) { }
 
-  async create(accountData: CreateAccountModel): Promise<AccountModel> {
+  async update(id: number, accountData: UpdateAccountModel): Promise<AccountModel> {
     const account = await this.checkAccountByEmailRepository.checkByEmail(accountData.email)
 
     if (account) throw new Error('ACCOUNT_EMAIL_EXISTING')
 
     const hashedPassword = await this.encrypter.hash(accountData.password)
-    const newAccount = await this.createAccountRepository.create(Object.assign({}, accountData, { password: hashedPassword }))
+    const newAccount = await this.updateAccountRepository.update(id, Object.assign({}, accountData, { password: hashedPassword }))
     return newAccount
-
   }
+
 }
