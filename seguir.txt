@@ -1,1 +1,1 @@
-Começa pela presentation
+arrumar a validação de email no update e como enviar via paramns
