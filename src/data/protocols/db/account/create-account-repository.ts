@@ -1,4 +1,4 @@
-import { CreateAccountModel } from '../../../../domain/usecases/create-account'
+import { CreateAccountModel } from '../../../../domain/usecases/user/create-account'
 import { AccountModel } from '../../../../domain/models/account'
 
 export interface CreateAccountRepository {

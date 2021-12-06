@@ -1,1 +1,15 @@
-arrumar a validação de email no update e como enviar via paramns
+arrumar a validação de email no update 
+como enviar id via paramns
+fazer rota delete
+fazer rota get
+
+1º  ->  Criar no domain a interface a se usar
+2º  ->  Criar no infra e no db
+
+data          ->  protocols   ->  db          ->  account
+data          ->  protocols   ->  db          ->  usecases
+domain        ->  usecases
+infra         ->  db          ->  mssql       ->  models
+main          ->  factories   ->  controllers ->  user  ??
+main          ->  routes
+presentation  ->  controllers

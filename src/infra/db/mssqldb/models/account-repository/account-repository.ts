@@ -3,9 +3,11 @@ import {
   CreateAccountRepository,
   CheckAccountByEmailRepository,
   UpdateAccessTokenRepository,
-  UpdateAccountRepository
+  UpdateAccountRepository,
+  DeleteAccountRepository
 } from "../../../../../data/protocols/db"
 import { CreateAccountModel, AccountModel } from "../../../../../data/usecases/create-account/db-create-account-protocols"
+import { DeleteAccountModel } from "../../../../../data/usecases/delete-account/db-delete-account-protocols"
 import knex from '../../helpers/connect'
 
 const TABLE_USERS = 'matheus.users'
@@ -14,7 +16,8 @@ export class AccountMssqlRepository implements
   CreateAccountRepository,
   CheckAccountByEmailRepository,
   UpdateAccessTokenRepository,
-  UpdateAccountRepository {
+  UpdateAccountRepository,
+  DeleteAccountRepository {
 
   async create(accountData: CreateAccountModel): Promise<AccountModel> {
     const [account] = await knex(TABLE_USERS).insert(accountData).returning('*')
@@ -26,6 +29,13 @@ export class AccountMssqlRepository implements
     const [account] = await knex(TABLE_USERS).where({ id }).update(accountData).returning('*')
 
     return account
+  }
+
+  async delete(deleteAccountModel: DeleteAccountModel): Promise<any> {
+    const {email} = deleteAccountModel
+    const result = await knex(TABLE_USERS).del().where({email})
+
+    return result
   }
 
   async checkByEmail(email: string): Promise<AccountModel> {

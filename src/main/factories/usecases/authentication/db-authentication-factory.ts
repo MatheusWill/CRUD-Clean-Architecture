@@ -2,7 +2,7 @@ import { AccountMssqlRepository } from '../../../../infra/db/mssqldb/models/acco
 import { BcryptAdapter } from "../../../../infra/criptography/bcrypt-adapter"
 import { DbAuthentication } from '../../../../data/usecases/authentication/db-authentication'
 import { JwtAdapter } from '../../../../infra/criptography/jwt-adapter'
-import { Authentication } from '../../../../domain/usecases/authentication'
+import { Authentication } from '../../../../domain/usecases/user/authentication'
 
 export const makeDbAuthentication = (): Authentication => {
   const salt = 12
