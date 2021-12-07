@@ -31,7 +31,6 @@ export class DeleteController implements Controller {
         case 'ACCOUNT_EMAIL_NOT_EXISTING':
           return conflict(error)
         default:
-          console.error(error)
           return serverError()
       }
     }
