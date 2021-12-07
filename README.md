@@ -35,7 +35,7 @@
 * /api/index/:id  ->  Para buscar um usuários específico
 
 <h3>POST</h3>
-* /api/signup    ->   Para cadastrar um usuario, informando o name, email, password e passwordConfirmation
+* /api/signup    ->   Para cadastrar um usuario, informando o name, email, password e passwordConfirmation /n
 * /api/login     ->   Para fazer o login
 
 <h3>PUT</h3>
