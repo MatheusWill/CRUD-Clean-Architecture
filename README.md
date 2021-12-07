@@ -28,3 +28,18 @@
 * Sucrase
 * Nodemon
 
+<h2>Rotas</h2>
+
+<h3>GET</h3>
+* /api/index      ->  Para listar todos os usuários
+* /api/index/:id  ->  Para buscar um usuários específico
+
+<h3>POST</h3>
+* /api/signup    ->   Para cadastrar um usuario, informando o name, email, password e passwordConfirmation
+* /api/login     ->   Para fazer o login
+
+<h3>PUT</h3>
+* /api/update    ->   Para fazer alterção no usuário
+
+<h3>DELETE</h3>
+* /api/delete    ->   Para deletar o usuário, informando o email
