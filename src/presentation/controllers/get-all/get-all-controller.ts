@@ -2,21 +2,21 @@ import {
   HttpRequest,
   HttpResponse,
   Controller,
-  GetAccount,
-} from './get-controller-protocols'
+  GetAllAccountModel,
+} from './get-all-controller-protocols'
 import { serverError, ok } from '../../helpers/http/http-helper'
 
-export class GetController implements Controller {
+export class GetAllController implements Controller {
 
   constructor(
-    private readonly getAccount: GetAccount
+    private readonly getAllAccount: GetAllAccountModel
   ) { }
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
 
     try {
 
-      const account = await this.getAccount.get()
+      const account = await this.getAllAccount.getAll()
 
       return ok(account)
     } catch (error) {
