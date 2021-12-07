@@ -12,6 +12,6 @@ export default (router: Router): void => {
   router.get('/index', adaptRoute(makeGetAllController()))
   router.post('/signup', adaptRoute(makeSignUpController()))
   router.post('/login', adaptRoute(makeLoginController()))
-  router.put('/update', adaptRoute(makeUpdateController()))
+  router.put('/update/:id', adaptRoute(makeUpdateController()))
   router.delete('/delete', adaptRoute(makeDeleteController()))
 }

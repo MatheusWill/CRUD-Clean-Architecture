@@ -23,10 +23,10 @@ export class UpdateController implements Controller {
       const error = this.validation.validate(httpRequest.body)
       if (error) return badRequest(error)
 
-      const { id, name, email, password } = httpRequest.body
-      // const { id } = httpRequest.params
+      const { name, email, password } = httpRequest.body
+      const { id } = httpRequest.params
 
-      // if (!id) return badRequest(error)
+      if (!id) return badRequest(error)
 
       const account = await this.updateAccount.update(id, {
         name,
